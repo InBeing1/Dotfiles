@@ -1,8 +1,15 @@
 import QtQuick
 import Quickshell.Io
 
-Rectangle {
+Item {
     id: memory
+    implicitWidth: label.width
+    implicitHeight: bar.height
+
+    Rectangle { 
+        anchors.fill: parent 
+        color: "#44ff0000"
+    }
 
     property int usage: 0
 
@@ -30,6 +37,7 @@ Rectangle {
     }
 
     Text {
+        id: label
         text: "Memory: " + usage + "%"
         color: bar.colCyan
         font.family: bar.fontFamily

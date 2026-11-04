@@ -3,6 +3,13 @@ import Quickshell.Io
 
 Item {
     id: cpu
+    implicitWidth: label.width
+    implicitHeight: bar.height
+
+    Rectangle { 
+        anchors.fill: parent 
+        color: "#44ff0000"
+    }
 
     property int usage:0
     property real lastTotal: 0
@@ -40,6 +47,7 @@ Item {
     }
 
     Text {
+        id: label
         text: "CPU: " + usage + "%"
         color: bar.colYellow
         font.family: bar.fontFamily

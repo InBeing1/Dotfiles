@@ -3,15 +3,14 @@ import Quickshell.Services.UPower
 
 Item {
     id: power
-    implicitWidth: label.implicitWidth
-    implicitHeight: label.implicitHeight
+    implicitWidth: label.width
+    implicitHeight: bar.height
 
     Rectangle { 
         anchors.fill: parent 
         color: "#44ff0000"
     }
 
-    Component.onCompleted: console.log("size:", width, height, implicitWidth, implicitHeight)
     Text {
         id: label
 

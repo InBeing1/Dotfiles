@@ -1,8 +1,13 @@
 import QtQuick
 import Quickshell.Hyprland
 
-Rectangle{
+Item {
+    id: activewindow
+    width: label.width
+    height: bar.height
+
     Text {
+        id: label
         text: {
             const ws = Hyprland.focusedWorkspace
             const tl = Hyprland.activeToplevel

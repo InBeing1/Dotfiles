@@ -3,15 +3,13 @@ import Quickshell
 
 Item {
     id: clock
-    implicitWidth: label.implicitWidth
-    implicitHeight: label.implicitWidth
+    implicitWidth: label.width
+    implicitHeight: bar.height
 
     Rectangle { 
         anchors.fill: parent 
         color: "#44ff0000"
     }
-
-    Component.onCompleted: console.log("size:", width, height, implicitWidth, implicitHeight)
  
     Text {
         id: label
@@ -21,7 +19,7 @@ Item {
             precision: SystemClock.Minutes
         }
 
-        text: Qt.formatDateTime(systemclock.date, "ddd, MMM dd - HH:mm")
+        text: Qt.formatDateTime(systemclock.date, "HH:mm")
         color: bar.colBlue
         font.family: bar.fontFamily
         font.pixelSize: bar.fontSize

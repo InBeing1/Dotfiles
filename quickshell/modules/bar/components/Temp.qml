@@ -3,6 +3,14 @@ import Quickshell.Io
 
 Item {
     id: temperature
+    implicitWidth: label.width
+    implicitHeight: bar.implicitHeight
+
+
+    Rectangle { 
+        anchors.fill: parent 
+        color: "#44ff0000"
+    }
 
     property int temp: 0
 

@@ -20,7 +20,7 @@ PanelWindow {
     property string fontFamily: "Noto"
     property int fontSize: 14
 
-    implicitHeight: 29
+    implicitHeight: 25
     anchors.top: true
     anchors.left: true
     anchors.right: true
@@ -28,30 +28,35 @@ PanelWindow {
 
 
     // Memory
-    RowLayout {
-        id: left
-        anchors.fill: parent
+    Row {
+        id: leftPanel
+        anchors.left: parent.left
+        spacing: 5
 
+        Workspaces{}
+    }
 
-        // Workspaces{}
+    Row {
+        id: centerPanel
+        anchors.horizontalCenter: parent.horizontalCenter
 
-        // ActiveWindow{}
+        ActiveWindow{}
 
     }
 
-    RowLayout {
-        id: right
-        anchors.fill: parent
+    Row {
+        id: rightPanel
+        anchors.right: parent.right
+        spacing: 5
 
-        // Temp{}
+        Temp{}
 
-        // CPU{}
+        CPU{}
 
-        // Memory{}
+        Memory{}
 
         Clock{}
 
         Power{}
     }
-
 }
