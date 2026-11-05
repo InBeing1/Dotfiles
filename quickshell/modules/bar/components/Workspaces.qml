@@ -19,7 +19,7 @@ Repeater {
 
             text: index + 1
 
-            color: isActive ? Theme.colCyan : (ws ? Theme.colBlue : Theme.colMuted )
+            color: isActive ? Theme.colPri : (ws ? Theme.colBlue : Theme.colMuted )
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSize
             font.bold: true

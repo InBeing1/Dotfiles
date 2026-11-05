@@ -17,7 +17,7 @@ Item {
             if (tl === null || tl === undefined) return ""
             return String(tl.title)
         }
-        color: Theme.colCyan
+        color: Theme.colPri
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSize
         font.bold: true

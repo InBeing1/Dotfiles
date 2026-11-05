@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
+import qs.theme
 
 PanelWindow {
     id: launcher
@@ -46,9 +47,9 @@ PanelWindow {
 
     Rectangle {
         anchors.fill: parent
-        color: "#1e1e2e"
+        color: Theme.colBg
         border.width: 1
-        border.color: "#45475a"
+        border.color: Theme.colBd
 
         ColumnLayout {
             anchors.fill: parent
@@ -65,8 +66,8 @@ PanelWindow {
                     anchors.fill: parent
                     anchors.margins: 8
                     verticalAlignment: TextInput.AlignVCenter
-                    color: "white"
-                    font.pixelSize: 15
+                    color: Theme.colPri
+                    font.pixelSize: Theme.fontSize
                     onTextChanged: { launcher.query = text; list.currentIndex = 0 }
 
                     Keys.onEscapePressed: launcher.visible = false
@@ -92,15 +93,15 @@ PanelWindow {
                     required property int index
                     width: ListView.view.width
                     height: 32
-                    color: ListView.isCurrentItem ? "#45475a" : "transparent"
+                    color: ListView.isCurrentItem ? Theme.colBd : "transparent"
 
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
                         anchors.leftMargin: 10
                         text: modelData.name
-                        color: "white"
-                        font.pixelSize: 14
+                        color: Theme.colPri
+                        font.pixelSize: Theme.fontSize
                     }
 
                     MouseArea {
