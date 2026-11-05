@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Hyprland
+import qs.theme
 
 Repeater {
     id: workspaces
@@ -18,9 +19,9 @@ Repeater {
 
             text: index + 1
 
-            color: isActive ? bar.colCyan : (ws ? bar.colBlue : bar.colMuted )
-            font.family: bar.fontFamily
-            font.pixelSize: bar.fontSize
+            color: isActive ? Theme.colCyan : (ws ? Theme.colBlue : Theme.colMuted )
+            font.family: Theme.fontFamily
+            font.pixelSize: Theme.fontSize
             font.bold: true
             anchors.verticalCenter: parent.verticalCenter
         }

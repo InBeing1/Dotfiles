@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Services.UPower
+import qs.theme
 
 Item {
     id: power
@@ -15,10 +16,10 @@ Item {
         id: label
 
         text: Math.round(UPower.displayDevice.percentage * 100) + "%"
-        color: bar.colYellow
-        font.family: bar.fontFamily
-        font.pixelSize: bar.fontSize
+        color: Theme.colYellow
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
         font.bold: true
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.centerIn: parent
     }
 }

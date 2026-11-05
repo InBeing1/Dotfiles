@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Networking
+import qs.theme
 
 Item {
     id: wifi
@@ -16,10 +17,10 @@ Item {
 
     Text {
         id: label
-        anchors.verticalCenter: parent.verticalCenter
-        color: bar.colCyan
-        font.family: bar.fontFamily
-        font.pixelSize: bar.fontSize
+        anchors.centerIn: parent
+        color: Theme.colCyan
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
         font.bold: true
         text: wifi.activeNetwork
             ? wifi.activeNetwork.name + " " + Math.round(wifi.activeNetwork.signalStrength * 100) + "%"

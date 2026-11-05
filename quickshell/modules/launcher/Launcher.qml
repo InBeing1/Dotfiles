@@ -5,16 +5,20 @@ import Quickshell.Io
 import Quickshell.Wayland
 
 PanelWindow {
-    id: root
+    id: launcher
 
     visible: false
     color: "transparent"
     implicitWidth: 500
     implicitHeight: 400
-    // no anchors: the window is centered on screen
 
     WlrLayershell.layer: WlrLayer.Overlay
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
+
+    IpcHandler {
+        target: "launcher"
+        function toggle(): void { launcher.visible = !launcher.visible }
+    }
 
     property string query: ""
 
@@ -22,14 +26,14 @@ PanelWindow {
         const q = query.trim().toLowerCase();
         const all = DesktopEntries.applications.values.filter(e => !e.noDisplay);
         const hits = q === "" ? all : all.filter(e =>
-            e.name.toLowerCase().includes(q) ||
-            (e.genericName || "").toLowerCase().includes(q));
+        e.name.toLowerCase().includes(q) ||
+        (e.genericName || "").toLowerCase().includes(q));
         return hits.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     function launch(entry) {
         entry.execute();
-        root.visible = false;
+        launcher.visible = false;
     }
 
     onVisibleChanged: {
@@ -40,15 +44,8 @@ PanelWindow {
         }
     }
 
-    // toggled from a keybind: qs ipc call launcher toggle
-    IpcHandler {
-        target: "launcher"
-        function toggle(): void { root.visible = !root.visible }
-    }
-
     Rectangle {
         anchors.fill: parent
-        radius: 12
         color: "#1e1e2e"
         border.width: 1
         border.color: "#45475a"
@@ -61,7 +58,6 @@ PanelWindow {
             Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 36
-                radius: 8
                 color: "#313244"
 
                 TextInput {
@@ -71,14 +67,14 @@ PanelWindow {
                     verticalAlignment: TextInput.AlignVCenter
                     color: "white"
                     font.pixelSize: 15
-                    onTextChanged: { root.query = text; list.currentIndex = 0 }
+                    onTextChanged: { launcher.query = text; list.currentIndex = 0 }
 
-                    Keys.onEscapePressed: root.visible = false
+                    Keys.onEscapePressed: launcher.visible = false
                     Keys.onDownPressed: list.incrementCurrentIndex()
                     Keys.onUpPressed: list.decrementCurrentIndex()
                     Keys.onReturnPressed: {
-                        if (root.results.length > 0)
-                            root.launch(root.results[list.currentIndex])
+                        if (launcher.results.length > 0)
+                        launcher.launch(launcher.results[list.currentIndex])
                     }
                 }
             }
@@ -88,7 +84,7 @@ PanelWindow {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 clip: true
-                model: root.results
+                model: launcher.results
                 highlightMoveDuration: 0
 
                 delegate: Rectangle {
@@ -96,7 +92,6 @@ PanelWindow {
                     required property int index
                     width: ListView.view.width
                     height: 32
-                    radius: 6
                     color: ListView.isCurrentItem ? "#45475a" : "transparent"
 
                     Text {
@@ -110,7 +105,7 @@ PanelWindow {
 
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: root.launch(modelData)
+                        onClicked: launcher.launch(modelData)
                     }
                 }
             }

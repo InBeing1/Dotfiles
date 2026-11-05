@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Hyprland
+import qs.theme
 
 Item {
     id: activewindow
@@ -16,9 +17,9 @@ Item {
             if (tl === null || tl === undefined) return ""
             return String(tl.title)
         }
-        color: bar.colCyan
-        font.family: bar.fontFamily
-        font.pixelSize: bar.fontSize
+        color: Theme.colCyan
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
         font.bold: true
         elide: Text.ElideMiddle
         maximumLineCount: 1

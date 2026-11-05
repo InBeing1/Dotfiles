@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Io
+import qs.theme
 
 Item {
     id: cpu
@@ -49,11 +50,11 @@ Item {
     Text {
         id: label
         text: "CPU: " + usage + "%"
-        color: bar.colYellow
-        font.family: bar.fontFamily
-        font.pixelSize: bar.fontSize
+        color: Theme.colYellow
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
         font.bold: true
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.centerIn: parent
     }
 
 }

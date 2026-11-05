@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Io
+import qs.theme
 
 Item {
     id: memory
@@ -39,10 +40,10 @@ Item {
     Text {
         id: label
         text: "Memory: " + usage + "%"
-        color: bar.colCyan
-        font.family: bar.fontFamily
-        font.pixelSize: bar.fontSize
+        color: Theme.colCyan
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
         font.bold: true
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.centerIn: parent
     }
 }

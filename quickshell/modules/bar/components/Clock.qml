@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell
+import qs.theme
 
 Item {
     id: clock
@@ -20,11 +21,11 @@ Item {
         }
 
         text: Qt.formatDateTime(systemclock.date, "HH:mm")
-        color: bar.colBlue
-        font.family: bar.fontFamily
-        font.pixelSize: bar.fontSize
+        color: Theme.colBlue
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
         font.bold: true
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.centerIn: parent
     
     }
 

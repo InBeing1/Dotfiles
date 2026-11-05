@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell.Io
+import qs.theme
 
 Item {
     id: temperature
@@ -29,10 +30,10 @@ Item {
     Text {
         id: label
         text: temp + '\u00b0C'
-        color: bar.colBlue
-        font.family: bar.fontFamily
-        font.pixelSize: bar.fontSize
+        color: Theme.colBlue
+        font.family: Theme.fontFamily
+        font.pixelSize: Theme.fontSize
         font.bold: true
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.centerIn: parent
     }
 }
