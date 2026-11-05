@@ -26,7 +26,6 @@ PanelWindow {
     anchors.right: true
     color: colBg
 
-
     // Memory
     Row {
         id: leftPanel
@@ -48,6 +47,8 @@ PanelWindow {
         id: rightPanel
         anchors.right: parent.right
         spacing: 5
+
+        Wifi{}
 
         Temp{}
 
