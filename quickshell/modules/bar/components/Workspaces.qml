@@ -23,7 +23,7 @@ Repeater {
             font.family: Theme.fontFamily
             font.pixelSize: Theme.fontSize
             font.bold: true
-            anchors.verticalCenter: parent.verticalCenter
+            anchors.centerIn: parent
         }
     }
 }

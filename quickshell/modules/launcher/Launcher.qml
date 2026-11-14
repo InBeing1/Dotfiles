@@ -59,7 +59,7 @@ PanelWindow {
             Rectangle {
                 Layout.fillWidth: true
                 implicitHeight: 36
-                color: "#313244"
+                color: Theme.colBd
 
                 TextInput {
                     id: input

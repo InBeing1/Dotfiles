@@ -18,7 +18,12 @@ return {
 				"gitignore",
 				"go",
 				"python",
-				"c"
+				"c",
+                "markdown",
+                "markdown_inline",
+                "latex",
+                "typst",
+                "yaml"
 			}
 
 			local group = vim.api.nvim_create_augroup("ThePrimeagenTreesitter", { clear = true })
