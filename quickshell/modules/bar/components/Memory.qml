@@ -4,8 +4,8 @@ import qs.theme
 
 Item {
     id: memory
-    implicitWidth: label.width
-    implicitHeight: bar.height
+    implicitWidth: label.implicitWidth
+    implicitHeight: label.implicitHeight
 
     Rectangle { 
         anchors.fill: parent 
@@ -39,11 +39,12 @@ Item {
 
     Text {
         id: label
-        text: "Memory: " + usage + "%"
+        text: "\uefc5\n" + usage + "%"
         color: Theme.colCyan
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSize
         font.bold: true
         anchors.centerIn: parent
+        horizontalAlignment: Text.AlignHCenter
     }
 }

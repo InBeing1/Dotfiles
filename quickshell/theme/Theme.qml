@@ -13,7 +13,8 @@ Singleton {
     readonly property color colBlue: "#7aa2f7"
     readonly property color colYellow: "#e0af68"
 
-    readonly property string fontFamily: "Noto"
+    readonly property string fontFamily: "Hack Nerd Font Propo"
+    readonly property int iconSize: 20
     readonly property int fontSize: 14
     readonly property int fontSizeSmall: 12
 }

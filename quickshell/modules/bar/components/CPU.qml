@@ -4,8 +4,8 @@ import qs.theme
 
 Item {
     id: cpu
-    implicitWidth: label.width
-    implicitHeight: bar.height
+    implicitWidth: label.implicitWidth
+    implicitHeight: label.implicitHeight
 
     Rectangle { 
         anchors.fill: parent 
@@ -49,12 +49,13 @@ Item {
 
     Text {
         id: label
-        text: "CPU: " + usage + "%"
+        text: "\uf4bc\n" + usage + "%"
         color: Theme.colYellow
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSize
         font.bold: true
         anchors.centerIn: parent
+        horizontalAlignment: Text.AlignHCenter
     }
 
 }

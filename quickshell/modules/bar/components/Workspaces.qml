@@ -8,8 +8,13 @@ Repeater {
 
     // Workspaces
     Item {
-        implicitWidth: label.width
-        implicitHeight: bar.implicitHeight
+        implicitWidth: label.implicitWidth
+        implicitHeight: label.implicitHeight
+
+        Rectangle { 
+            anchors.fill: parent 
+            color: "#44ff0000"
+        }
 
         Text {
             id: label
@@ -24,6 +29,7 @@ Repeater {
             font.pixelSize: Theme.fontSize
             font.bold: true
             anchors.centerIn: parent
+            horizontalAlignment: Text.AlignHCenter
         }
     }
 }

@@ -1,9 +1,7 @@
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Hyprland // Hyprland IPC access
-import Quickshell.Io // For Process type
 import QtQuick
-import QtQuick.Layouts // For RowLayout
+import QtQuick.Layouts
 import qs.theme
 import "components"
 
@@ -17,37 +15,40 @@ PanelWindow {
     color: Theme.colBg
 
     // Memory
-    Row {
+    RowLayout {
         id: leftPanel
         anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
         spacing: 5
 
-        Workspaces{}
+        Workspaces{ Layout.alignment: Qt.AlignVCenter }
     }
 
-    Row {
+    RowLayout {
         id: centerPanel
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
 
-        ActiveWindow{}
+        ActiveWindow{ Layout.alignment: Qt.AlignVCenter }
 
     }
 
-    Row {
+    RowLayout {
         id: rightPanel
         anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
         spacing: 5
 
-        Wifi{}
+        Wifi{ Layout.alignment: Qt.AlignVCenter }
 
-        Temp{}
+        Temp{ Layout.alignment: Qt.AlignVCenter }
 
-        CPU{}
+        CPU{ Layout.alignment: Qt.AlignVCenter }
 
-        Memory{}
+        Memory{ Layout.alignment: Qt.AlignVCenter }
 
-        Clock{}
+        Clock{ Layout.alignment: Qt.AlignVCenter }
 
-        Power{}
+        Power{ Layout.alignment: Qt.AlignVCenter }
     }
 }

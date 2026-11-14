@@ -4,8 +4,8 @@ import qs.theme
 
 Item {
     id: temperature
-    implicitWidth: label.width
-    implicitHeight: bar.implicitHeight
+    implicitWidth: label.implicitWidth
+    implicitHeight: label.implicitHeight
 
 
     Rectangle { 
@@ -35,5 +35,6 @@ Item {
         font.pixelSize: Theme.fontSize
         font.bold: true
         anchors.centerIn: parent
+        horizontalAlignment: Text.AlignHCenter
     }
 }

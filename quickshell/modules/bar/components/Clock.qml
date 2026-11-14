@@ -4,8 +4,8 @@ import qs.theme
 
 Item {
     id: clock
-    implicitWidth: label.width
-    implicitHeight: bar.height
+    implicitWidth: label.implicitWidth
+    implicitHeight: label.implicitHeight
 
     Rectangle { 
         anchors.fill: parent 
@@ -20,13 +20,13 @@ Item {
             precision: SystemClock.Minutes
         }
 
-        text: Qt.formatDateTime(systemclock.date, "HH:mm")
+        text: Qt.formatDateTime(systemclock.date, "HH\nmm")
         color: Theme.colBlue
         font.family: Theme.fontFamily
         font.pixelSize: Theme.fontSize
         font.bold: true
         anchors.centerIn: parent
-    
+        horizontalAlignment: Text.AlignHCenter
     }
 
 }

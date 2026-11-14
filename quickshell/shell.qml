@@ -4,7 +4,8 @@ import "modules/launcher"
 
 ShellRoot {
     id: root
-    Bar{}
+    SideBar{}
+    //Bar{}
     Launcher{}
 }
 
